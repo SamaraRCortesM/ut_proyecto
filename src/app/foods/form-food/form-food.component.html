@@ -1,14 +1,20 @@
-<div class="flex flex-col gap-4">
-<mat-form-field appearance="outline">
-    <mat-label for="name">Nombre de la comida</mat-label>
-    <input matInput placeholder="Ejem.Pizza" id="name" type="text" [formControl]="name">
-    @if (name.valid) {
-        <mat-error>{{showValue()}}</mat-error>
-      }
+<form [formGroup]="form" class="max-w-3x1 p-4">
+
+
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="ejem.Pizza" formControlName="name">
     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    @if(name?.invalid && (name?.dirty || name?.touched)){
+      <mat-error>
+      @if(name?.hasError('required')){
+        <span class="text-xs">Este campo es requerido</span>
+      }
+    </mat-error>
+
+    }
   </mat-form-field>
-  <div class="flex gap-4">
-  <button mat-flat-button color="primary" (click)="showValue()">Enviar</button>
-  <button mat-flat-button color="primary" (click)="changeValue()">Cambiar el Valor</button>
-  </div>
 </div>
+
+</form>
