@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { FoodsComponent } from './foods/foods.component';
 
@@ -9,7 +8,7 @@ export const routes: Routes = [
 },
 {
     path:'food',
-    loadChildren:() => import('./foods/food-list/foods.routes'),
+    loadChildren:() => import('./foods/foods.routes'),
     }
 
 ];

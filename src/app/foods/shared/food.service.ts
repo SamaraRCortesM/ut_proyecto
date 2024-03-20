@@ -11,7 +11,7 @@ export class FoodService {
     id:1,
     name:'pizza',
     description:'Peperoni',
-    category: 'food',
+    category: 'Food',
     image:'https://images.milenio.com/0K6Z88QAoROoZrWK5LGsv0w0IqU=/942x532/uploads/media/2019/06/03/no-hay-quien-se-resista.jpg',
     price:250
   },
@@ -19,7 +19,7 @@ export class FoodService {
     id:2,
     name:'pizza',
     description:'Peperoni',
-    category: 'food',
+    category: 'Food',
     image:'https://images.milenio.com/0K6Z88QAoROoZrWK5LGsv0w0IqU=/942x532/uploads/media/2019/06/03/no-hay-quien-se-resista.jpg',
     price:250
   },
@@ -27,12 +27,15 @@ export class FoodService {
     id:3,
     name:'pizza',
     description:'Peperoni',
-    category: 'food',
+    category: 'Food',
     image:'https://images.milenio.com/0K6Z88QAoROoZrWK5LGsv0w0IqU=/942x532/uploads/media/2019/06/03/no-hay-quien-se-resista.jpg',
     price:250
   }
  ]
   constructor() { }
+  public getOne(id: number): Food | undefined {
+    return this.menu.find(item => item.id == id);
+  }
   public getAllFoods():Food[]{
     return this.menu;
   }
@@ -43,7 +46,7 @@ export class FoodService {
   public updateFood(newFood:Food){
     this.menu.forEach((food,index)=>{
       if(food.id == newFood.id){
-        food =newFood;
+        this.menu[index] = newFood;
       }
     })
   }
